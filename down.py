@@ -14,7 +14,7 @@ class Fbdl:
 		print("""
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	; FACEBOOK VIDEO DOWNLOADER ;
-	;       By KANG-NEWBIE      ;
+	;     By Shashimal_Vishwajith      ;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	""")
 		ur=input('[?] Url Facebook Video: ')
