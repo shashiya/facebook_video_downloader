@@ -1,37 +1,30 @@
-
 #Python 3.7.X
 #Author: KANG-NEWBIE ©2019
-
 import requests,os,sys,urllib.parse,re
-
 class Fbdl:
 	def __init__(self):
 		self.req=requests.Session()
 		self.banner()
-
 	def banner(self):
 		os.system('clear')
 		print("""
-────╔╗──────────╔╗────╔╗─╔╗────
-────║║──────────║║────║║─║║────
-╔══╗║╚═╗╔══╗╔══╗║╚═╗╔╗║╚═╝║╔══╗
-║══╣║╔╗║║╔╗║║══╣║╔╗║─╣╚═╗╔╝║╔╗║
-─══║║║║║║╔╗║─══║║║║║║║╔═╝║─║╔╗║
-╚══╝╚╝╚╝╚╝╚╝╚══╝╚╝╚╝╚╝╚══╝─╚╝╚╝
-
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	; FACEBOOK VIDEO DOWNLOADER ;
+	;       By KANG-NEWBIE      ;
+	;     By Shashimal_Vishwajith      ;
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	""")
 		ur=input('[?] Url Facebook Video: ')
 		self.file=input('[?] Output File: ')
 		print()
 		rl=ur.replace('https://m.','https://mbasic.').replace('https://www.','https://mbasic.')
 		self.getlnk(rl)
-
 	def getlnk(self,url):
 		r=self.req.get(url)
 		rr=re.findall(r'<a href="(.*?)"',r.text)
 		for x in rr:
 			if "/video_redirect/?src=" in x:
 				self.dl(x)
-
 	def dl(self,link):
 		re=link.replace('/video_redirect/?src=','')
 		ree=urllib.parse.unquote(re)
@@ -51,7 +44,6 @@ class Fbdl:
 					done=int(25*dlw/total_length)
 					sys.stdout.write(f"\r[{'>'*done}{'='*(25-done)}] {ges+1}% ")
 					sys.stdout.flush()
-
 try:
 	Fbdl()
 except Exception as F:
